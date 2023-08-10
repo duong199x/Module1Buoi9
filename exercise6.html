@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ứng dụng good-fast-cheap</title>
+
+</head>
+<body>
+<input type="checkbox" id="good" onchange="convert(event)" value="Good">
+<span>GOOD</span>
+<br>
+<input type="checkbox" id="fast" onchange="convert(event)" value="Fast"/>
+<span>FAST</span>
+<br>
+<input type="checkbox" id="cheap" onchange="convert(event)" value="Cheap"/>
+<span>CHEAP</span>
+
+<script>
+    // function selectGood() {
+    //     let pullGood = document.getElementById('good');
+    //     let pullFast = document.getElementById('fast');
+    //     let pullCheap = document.getElementById('cheap');
+    //    if (pullGood.checked && pullFast.checked){
+    //        pullCheap.checked = false;
+    //    }
+    // }function selectFast() {
+    //     let pullGood = document.getElementById('good');
+    //     let pullFast = document.getElementById('fast');
+    //     let pullCheap = document.getElementById('cheap');
+    //     if (pullCheap.checked && pullFast.checked){
+    //         pullGood.checked = false;
+    //     }
+    // }function selectCheap() {
+    //     let pullGood = document.getElementById('good');
+    //     let pullFast = document.getElementById('fast');
+    //     let pullCheap = document.getElementById('cheap');
+    //     if (pullGood.checked && pullCheap.checked){
+    //         pullFast.checked = false;
+    //     }
+    // }
+
+
+    function convert(event) {
+        let pullGood = document.getElementById('good');
+        let pullFast = document.getElementById('fast');
+        let pullCheap = document.getElementById('cheap');
+        let key = event.target.value;
+        switch (key) {
+            case 'Good':
+                if (pullGood.checked && pullFast.checked) {
+                    pullCheap.checked = false;
+                }
+                break;
+            case 'Fast':
+                if (pullFast.checked && pullCheap.checked){
+                    pullGood.checked = false;
+                }
+                break;
+            case 'Cheap':
+                if (pullGood.checked && pullCheap.checked){
+                    pullFast.checked = false;
+                }
+                break;
+        }
+    }
+
+
+</script>
+
+
+</body>
+</html>

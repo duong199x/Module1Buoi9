@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Game puzzle</title>
+    <style>
+        img {
+            box-shadow: black 2px 3px 3px;
+            margin: 5px 5px;
+            width: 100%;
+            height: 160px;
+        }
+
+        div {
+            width: 800px;
+        }
+
+    </style>
+</head>
+<body>
+<div id="cover">
+    <img id="img1" src="./asset/1_1.jpg" alt="#" onclick="changeImage1()"><br>
+    <img id="img2" src="./asset/2_2.jpg" alt="#" onclick="changeImage2()"><br>
+    <img id="img3" src="./asset/3_3.jpg" alt="#" onclick="changeImage3()"><br>
+</div>
+<p></p>
+</body>
+<script>
+    let tailImage1 = 1;
+    let tailImage2 = 1;
+    let tailImage3 = 1;
+    let img1 = document.getElementById('img1');
+    let img2 = document.getElementById('img2');
+    let img3 = document.getElementById('img3');
+
+
+    function changeImage1() {
+        ++tailImage1;
+        img1.src = './asset/1_' + tailImage1 + '.jpg'
+        if (tailImage1 === 3) {
+            tailImage1 = 0
+        }
+        check();
+    }
+
+    function changeImage2() {
+        ++tailImage2;
+        img2.src = './asset/2_' + tailImage2 + '.jpg'
+        if (tailImage2 === 3) {
+            tailImage2 = 0
+        }
+        check()
+    }
+
+    function changeImage3() {
+        ++tailImage3;
+        img3.src = './asset/3_' + tailImage3 + '.jpg'
+        if (tailImage3 === 3) {
+            tailImage3 = 0
+        }
+        check()
+    }
+
+    function check() {
+        let cover = document.getElementById('cover');
+        let link1 = img1.src;
+        let link2 = img2.src;
+        let link3 = img3.src;
+        console.log(img1.src.includes('1_1.jpg'));
+        if (link1.includes('1_1.jpg') && link2.includes('2_1.jpg') && link3.includes('3_1.jpg')) {
+            cover.style.border = '1px solid red';
+        }
+        if (link1.includes('1_2.jpg') && link2.includes('2_2.jpg') && link3.includes('3_2.jpg')) {
+            cover.style.border = '1px solid red';
+        }
+        if (link1.includes('1_3.jpg') && link2.includes('2_3.jpg') && link3.includes('3_3.jpg')) {
+            cover.style.border = '1px solid red';
+        }
+    }
+</script>
+</html>

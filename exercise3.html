@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Máy tính đơn giảnAssignment</title>
+</head>
+<body>
+<input type="text" id="inputValue">
+<table>
+    <tr>
+        <td>
+            <button onclick="getValue(event)" value="1">1</button>
+        </td>
+        <td>
+            <button onclick="getValue(event)" value="2">2</button>
+        </td>
+        <td>
+            <button onclick="getValue(event)" value="3">3</button>
+        </td>
+        <td>
+            <button onclick="getValue(event)" value="+">+</button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button onclick="getValue(event)" value="4">4</button>
+        </td>
+        <td>
+            <button onclick="getValue(event)" value="5">5</button>
+        </td>
+        <td>
+            <button onclick="getValue(event)" value="6">6</button>
+        </td>
+        <td>
+            <button onclick="getValue(event)" value="-">-</button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button onclick="getValue(event)" value="7">7</button>
+        </td>
+        <td>
+            <button onclick="getValue(event)" value="8">8</button>
+        </td>
+        <td>
+            <button onclick="getValue(event)" value="98">9</button>
+        </td>
+        <td>
+            <button onclick="getValue(event)" value="*">x</button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button onclick="reset()">C</button>
+        </td>
+        <td>
+            <button onclick="getValue(event)" value="0">0</button>
+        </td>
+        <td>
+            <button onclick="result()">=</button>
+        </td>
+        <td>
+            <button onclick="getValue(event)" value="/">/</button>
+        </td>
+    </tr>
+</table>
+</body>
+<script>
+    let str = '';
+
+    function getValue(event) {
+        let value = event.target.value;
+        str += value;
+        document.getElementById('inputValue').value = str;
+    }
+
+    function result() {
+        let result = document.getElementById('inputValue').value = eval(str);
+        str = result;
+    }
+
+    function reset() {
+        document.getElementById('inputValue').value = '';
+        str = ''
+    }
+</script>
+</html>

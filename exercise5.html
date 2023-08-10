@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ứng dụng vui DoYouLoveMeAssignment</title>
+    <style>
+        body{
+        width: 1000px;
+        height: 500px;
+    }</style>
+</head>
+<body>
+<h1>Do you love me</h1>
+<button onclick="clickYes()">Yes</button>
+<button id="no" style="position: relative;left:0;top: 0" onmouseover="hoverNo()">No</button>
+</body>
+<script>
+    function clickYes() {
+        alert('yes');
+    }
+
+    function hoverNo() {
+        let a = document.getElementById('no');
+        a.style.left = Math.random() * window.innerWidth + 'px';
+        a.style.top = Math.random() * window.innerHeight + 'px';
+    }
+</script>
+</html>

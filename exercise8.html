@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Luyện tập cấu trúc điều kiện 02</title>
+</head>
+<body>
+<h1>Bài 1</h1>
+nhập độ C: <input type="text" id="doC">
+<button onclick="Chuyendoi()">Chuyển đổi</button>
+độ F<input type="text" id="doF" disabled>
+<h1>Bài 2</h1>
+nhập chiều dài(m): <input type="text" id="m">
+<button onclick="Chuyendoi1()">Chuyển đổi</button>
+feet: <input type="text" id="feet" disabled>
+<h1>Bài 3</h1>
+nhập cạnh a: <input type="text" id="a">
+<button onclick="Tinh()">Tính</button>
+Diện tích: <input type="text" id="dientich" disabled>
+<h1>Bài 4</h1>
+nhập cạnh a: <input type="text" id="a4">
+nhập cạnh b: <input type="text" id="b4">
+<button onclick="Tinh4()">Tính</button>
+Diện tích: <input type="text" id="dientichchunhat" disabled>
+<h1>Bài 5</h1>
+nhập cạnh a: <input type="text" id="a5">
+nhập cạnh b: <input type="text" id="b5">
+<button onclick="Tinh5()">Tính</button>
+Diện tích: <input type="text" id="dientichtamgiac" disabled>
+<h1>Bài 6</h1>
+ax + b = 0
+nhập a: <input type="text" id="a6">
+nhập b: <input type="text" id="b6">
+<button onclick="Tinh6()">Tính</button>
+x= <input type="text" id="pt1" disabled>
+<h1>Bài 7</h1>
+ax^2 + bx + c = 0 <br>
+nhập a: <input type="text" id="a7"> <br>
+nhập b: <input type="text" id="b7"> <br>
+nhập c: <input type="text" id="c7">
+<button onclick="Tinh7()">Tính</button>
+x1= <input type="text" id="ptb2_1" disabled>
+x2= <input type="text" id="ptb2_2" disabled>
+<h1>Bài 8</h1>
+kiểm tra tuổi: <input type="text" id="a8">
+<button onclick="check8()">Check</button>
+<p id="result8"></p>
+<h1>Bài 9</h1>
+<h1>Bài 10</h1>
+<h1>Bài 11</h1>
+<h1>Bài 12</h1>
+</body>
+<script>
+    // Bài 1: Chuyển từ độ C sang độ F.
+    function Chuyendoi() {
+        let doC = document.getElementById('doC').value
+        document.getElementById('doF').value = doC * 9 / 5 + 32;
+    }
+
+    // Bài 2: Chuyển từ mét sang feet:
+    function Chuyendoi1() {
+        let m = document.getElementById('m').value
+        document.getElementById('feet').value = m * 3.2808;
+    }
+
+    // Bài 3: Tính diện tích hình vuông khi biết cạnh a.
+    function Tinh() {
+        let a = +document.getElementById('a').value
+        document.getElementById('dientich').value = a * a;
+    }
+
+    //     Bài 4: Tính diện tích hình  chữ nhật khi biết 02 cạnh a, b.
+    function Tinh4() {
+        let a4 = +document.getElementById('a4').value
+        let b4 = +document.getElementById('b4').value
+        document.getElementById('dientichchunhat').value = a4 * b4;
+    }
+
+    //     Bài 5: Tính diện tích tam giác vuông khi biết 02 cạnh kề a, b.
+    function Tinh5() {
+        let a5 = +document.getElementById('a5').value
+        let b5 = +document.getElementById('b5').value
+        document.getElementById('dientichtamgiac').value = a5 * b5 / 2;
+    }
+
+    //     Bài 6: Giải phương trình bậc 1.
+    function Tinh6() {
+        let a6 = +document.getElementById('a6').value
+        let b6 = +document.getElementById('b6').value
+        if (a6 === 0) {
+            alert('phương trình vô nghiệm');
+        } else {
+            document.getElementById('pt1').value = -b6 / a6;
+        }
+
+    }
+
+    // Bài 7: Giải phương trình bậc 2.
+    function Tinh7() {
+        let a7 = +document.getElementById('a7').value
+        let b7 = +document.getElementById('b7').value
+        let c7 = +document.getElementById('c7').value
+        let delta = b7 * b7 - 4 * a7 * c7;
+        if (delta < 0) {
+            alert('phương trình vô nghiệm');
+        } else if (delta === 0) {
+            document.getElementById('ptb2_1').value = document.getElementById('ptb2_2').value = -b7 / (2 * a7);
+        } else if (delta > 0) {
+            document.getElementById('ptb2_1').value = (-b7 - Math.sqrt(delta)) / (2 * a7);
+            document.getElementById('ptb2_2').value = (-b7 + Math.sqrt(delta)) / (2 * a7);
+        }
+
+    }
+
+    // Bài 8: Kiểm tra xem một số nhập vào có phải là tuổi của một người không. Một số nguyên là tuổi của một người khi nhỏ 120 và lơn hơn 0.
+    function check8() {
+        let a8 = document.getElementById('a8').value;
+        if (a8 < 120 && a8 > 0) {
+            document.getElementById('result8').innerHTML = 'là người'
+        } else {
+            document.getElementById('result8').innerHTML = 'không phải người'
+        }
+    }
+
+    // Bài 9: Kiểm tra xem 3 số thực (a,b,c) nhập vào có phải là cạnh của một tam giác. Điều kiện để a,b,c là cạnh của một tam giác là:
+    // Bài 10: Viết chương trình tính giá điện.
+    //     Bài 11: Viết chương trình tính thuế thu nhập cá nhân.
+    //     Bài 12: Viết chương trình tính lãi ngân hàng (lãi mẹ đẻ lãi con) khi biết số tiền ban đầu, số tháng cho vay và lãi xuất hàng tháng.
+</script>
+</html>

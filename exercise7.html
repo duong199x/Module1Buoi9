@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Luyện tập cấu trúc điều kiện 01</title>
+</head>
+<body>
+<h1>Bài 1</h1>
+a: <input type="text" id="a">
+b: <input type="text" id="b">
+<button onclick="Check()">Check</button>
+<p id="result"></p>
+<h1>Bài 2</h1>
+age: <input type="text" id="age">
+<button onclick="check2()">Check</button>
+<p id="result2"></p>
+<h1>Bài 3</h1>
+kiểm tra: <input type="text" id="a3">
+<button onclick="check3()">Check</button>
+<p id="result3"></p>
+<h1>Bài 4</h1>
+<span>a:</span><input type="text" id="a4"><br>
+<span>b:</span><input type="text" id="b4"><br>
+<span>c:</span><input type="text" id="c4"><br>
+<button onclick="submit4()">Submit</button>
+<p id="result4"></p>
+<h1>Bài 5</h1>
+kiểm tra học lực: <input type="text" id="a5">
+<button onclick="check5()">Check</button>
+<p id="result5"></p>
+<h1>Bài 6</h1>
+Nhập giá bán: <input type="text" id="a6">
+<button onclick="check6()">Tính tiền</button>
+Tiền hoa hồng: <input type="text" disabled id="b6">
+<h1>Bài 7</h1>
+Nhập thời gian gọi(phút): <input type="text" id="a7">
+<button onclick="check7()">Tính tiền</button>
+tiền cước: <input type="text" disabled id="b7">
+</body>
+<script>
+    // Bài 1: Nhập vào hai số a và b, và kiểm tra xem a có chia hết cho b hay không
+    function Check() {
+        let a = document.getElementById('a').value;
+        let b = document.getElementById('b').value;
+        if (a % b === 0) {
+            document.getElementById('result').innerHTML = 'a chia hết cho b'
+        } else {
+            document.getElementById('result').innerHTML = 'a không chia hết cho b'
+        }
+    }
+
+    // Bài 2: Nhập tuổi và in ra kết quả nếu tuổi học sinh đó không đủ điều kiện vào học lớp 10.
+    function check2() {
+        let age = document.getElementById('age').value;
+        if (age >= 14) {
+            document.getElementById('result2').innerHTML = 'đủ điều kiện vào lớp 10'
+        } else {
+            document.getElementById('result2').innerHTML = 'không đủ điều kiện vào lớp 10'
+        }
+    }
+
+    // Bài 3: Nhập một số nguyên bất kỳ và in kết quả ra màn hình để nói cho người dùng biết số đó là lớn hay nhỏ hơn 0
+    function check3() {
+        let a3 = document.getElementById('a3').value;
+        if (a3 > 0) {
+            document.getElementById('result3').innerHTML = 'lớn hơn 0'
+        } else {
+            document.getElementById('result3').innerHTML = 'nhỏ hơn 0'
+        }
+    }
+
+    // Bài 4: Nhập 3 số nguyên và tìm giá trị lớn nhất của ba số nguyên đó
+    function submit4() {
+        let a = +document.getElementById('a4').value;
+        let b = +document.getElementById('b4').value;
+        let c = +document.getElementById('c4').value;
+        if (a > b) {
+            if (a > c) {
+                document.getElementById('result4').innerHTML = a;
+            } else {
+                document.getElementById('result4').innerHTML = c;
+            }
+        } else if (b > a) {
+            if (b > c) {
+                document.getElementById('result4').innerHTML = b;
+            } else {
+                document.getElementById('result4').innerHTML = c;
+            }
+        }
+    }
+
+    // Bài 5: Xếp hạng học lực của học sinh dựa trên các điểm bài kiểm tra, điểm thi giữa kỳ, điểm thi cuối kỳ
+    function check5() {
+        let a5 = document.getElementById('a5').value;
+        if (a5 > 8) {
+            document.getElementById('result5').innerHTML = 'học lực giỏi'
+        } else if (a5 < 8 && a5 > 5) {
+            document.getElementById('result5').innerHTML = 'học lực khá'
+        } else {
+            document.getElementById('result5').innerHTML = 'học lực dốt'
+        }
+    }
+
+    // Bài 6: Tính hoa hồng nhận được tuỳ theo mức doanh số bán hàng
+    function check6() {
+        let a6 = +document.getElementById('a6').value;
+        document.getElementById('b6').value = a6 * 30 / 100;
+    }
+
+    // Bài 7: Tính cước điện thoại cho một hộ gia đình với các thông số đã cho
+    function check7() {
+        let a7 = +document.getElementById('a7').value;
+        document.getElementById('b7').value = a7 * 3000 + 'đ';
+    }
+
+</script>
+</html>
